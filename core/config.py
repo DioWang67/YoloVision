@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import yaml
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
 @dataclass
@@ -37,8 +38,9 @@ class DetectionConfig:
 
 # 使用範例
 if __name__ == "__main__":
-    yaml_path = r"D:\Git\robotlearning\yolo11_inference_test\config.yaml"
-    config = DetectionConfig.from_yaml(yaml_path)
+    # 以相對路徑載入設定檔，假設 `config.yaml` 位於專案根目錄
+    yaml_path = Path(__file__).resolve().parent.parent / "config.yaml"
+    config = DetectionConfig.from_yaml(str(yaml_path))
     items = config.get_items_by_area("PCBA1", "A")
     print("PCBA1 A區域的項目列表:", items)
     items = config.get_items_by_area("PCBA1", "X")
