@@ -1,5 +1,4 @@
 
-from yolov5.utils.general import scale_boxes
 from MvImport.MvCameraControl_class import *
 import numpy as np
 import cv2

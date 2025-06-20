@@ -3,7 +3,6 @@ import torch
 import cv2
 import time
 import os
-import logging
 import numpy as np
 from typing import Dict, Optional, Tuple, Any, List
 from ultralytics import YOLO
