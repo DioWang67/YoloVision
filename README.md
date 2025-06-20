@@ -1,6 +1,6 @@
 # YoloVision
 
-YoloVision 是一個使用 **YOLO** 模型與 **海康威視 MVS 相機** 進行即時目標檢測的範例程式。程式透過 `config.yaml` 進行設定，並可將檢測結果與相關影像存入 `Result/` 目錄下，同時使用 `logs/` 記錄過程。
+YoloVision 是一個使用 **YOLO** 模型與 **海康威視 MVS 相機** 進行即時目標檢測的範例程式。程式透過 `config.yaml` 進行設定，並可將檢測結果與相關影像存入 `results/` 目錄下，同時使用 `logs/` 記錄過程。
 
 ## 主要功能
 
@@ -45,7 +45,7 @@ expected_items:
 python Inference.py
 ```
 
-程式會依序讀取 `config.yaml`、連接相機、取得畫面並進行檢測。結果影像會輸出至 `Result/` 子目錄，Excel 紀錄檔儲存於同處。
+程式會依序讀取 `config.yaml`、連接相機、取得畫面並進行檢測。結果影像會輸出至 `results/` 子目錄，Excel 紀錄檔儲存於同處。
 
 ## 目錄結構
 
@@ -53,7 +53,7 @@ python Inference.py
 - `MVS_camera_control.py`：MVS 相機操作與控制。
 - `core/`：包含偵測、記錄與結果處理等模組。
 - `config.yaml`：範例設定檔，可自行修改。
-- `Result/`：存放偵測結果與紀錄。
+- `results/`：存放偵測結果與紀錄。
 - `logs/`：執行時的 log 檔案。
 
 ## 注意事項
