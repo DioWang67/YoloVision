@@ -288,15 +288,6 @@ class MVSCamera:
         print("相機連接成功!")
         return True
 
-    def set_exposure_time(self, exposure_time):
-        """設定曝光時間（微秒）"""
-        ret = self.cam.MV_CC_SetFloatValue("ExposureTime", float(exposure_time))
-        if ret != 0:
-            print(f"設定曝光時間失敗! ret[0x{ret:x}]")
-            return False
-        print(f"已設定曝光時間為 {exposure_time} 微秒")
-        return True
-
     def get_exposure_time(self):
         """獲取當前曝光時間"""
         stParam = MVCC_FLOATVALUE()
@@ -355,20 +346,6 @@ class MVSCamera:
         self.cam.MV_CC_DestroyHandle()
         print("相機已安全關閉")
 
-    def create_control_window(self):
-        """創建參數調整視窗（根據支援的功能）"""
-        cv2.namedWindow('Controls')
-        
-        # 基本參數（通常都支援）
-        cv2.createTrackbar('Exposure (us)', 'Controls', 5000, 20000, 
-                          lambda x: self.set_exposure_time(x))
-        cv2.createTrackbar('Gain', 'Controls', 5, 15, 
-                          lambda x: self.set_gain(float(x)))
-        
-            
-        if self.supported_features.get('Contrast', False):
-            cv2.createTrackbar('Contrast', 'Controls', 100, 200, 
-                             lambda x: self.set_contrast(x))
 if __name__ == "__main__":
     from core.config import DetectionConfig
     config_path = "config.yaml"
