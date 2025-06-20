@@ -10,7 +10,7 @@ from ultralytics.utils.plotting import colors
 from core.logger import DetectionLogger
 
 class ResultHandler:
-    def __init__(self, config, base_dir: str = "Result", logger: DetectionLogger = None):
+    def __init__(self, config, base_dir: str = "results", logger: DetectionLogger = None):
         self.base_dir = base_dir
         self.config = config
         self.colors = colors
